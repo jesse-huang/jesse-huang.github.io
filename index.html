@@ -87,62 +87,54 @@
             cursor: pointer;
         }
 
+        .container-all {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #carouselExampleIndicators .carousel-inner .carousel-item img {
+
+            display: block;
+            width: 100%;
+        }
         @media screen and (max-width: 2400px) {
             .container-all {
-                width: 1440px;
-                margin-left: auto;
-                margin-right: auto;
+                width: 1500px;
             }
 
             #carouselExampleIndicators .carousel-inner .carousel-item img {
-
-                display: block;
-                width: 100%;
-                height: 791px;
+                height: 824px;
 
             }
-
-
         }
-
         @media screen and (max-width: 1800px) {
             .container-all {
                 width: 1200px;
-                margin-left: auto;
-                margin-right: auto;
             }
 
             #carouselExampleIndicators .carousel-inner .carousel-item img {
-
-                display: block;
-                width: 100%;
                 height: 660px;
 
             }
-            /* #carouselExampleIndicators .carousel-inner{
-                height: 300px;
-            } */
         }
-
         @media screen and (max-width: 1200px) {
             .container-all {
                 width: 900px;
-                margin-left: auto;
-                margin-right: auto;
             }
 
             #carouselExampleIndicators .carousel-inner .carousel-item img {
-
-                display: block;
-                width: 100%;
                 height: 494px;
-
             }
-            /* #carouselExampleIndicators .carousel-inner{
-                height: 200px;
-            } */
+        }
 
+        @media screen and (max-width: 900px) {
+            .container-all {
+                width: 600px;
+            }
 
+            #carouselExampleIndicators .carousel-inner .carousel-item img {
+                height: 330px;
+            }
         }
     </style>
 </head>
@@ -182,12 +174,10 @@
                                 <img class="d-block w-100" src="asset/images/首页_08.jpg" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="http://fakeimg.pl/800x400/"
-                                    alt="Second slide">
+                                <img class="d-block w-100" src="http://fakeimg.pl/800x400/" alt="Second slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="http://fakeimg.pl/600x300/"
-                                    alt="Third slide">
+                                <img class="d-block w-100" src="http://fakeimg.pl/600x300/" alt="Third slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
