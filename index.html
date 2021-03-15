@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
-
+<html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>枫英设计</title>
@@ -88,17 +87,17 @@
             <div class="row d-flex justify-content-between">
                 <div class="col-md-6 col-lg-4 fy-main-content-meun">
                     <div class="fy-main-content-meun-item d-flex align-items-center justify-content-center">
-                        <span class="align-self-center">作品集</span>
+                        <span class="align-self-center" lang-flag="collect">作品集</span>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 fy-main-content-meun">
                     <div class="fy-main-content-meun-item d-flex align-items-center justify-content-center">
-                        <span class="align-self-center">工作室</span>
+                        <span class="align-self-center" lang-flag="workspace">工作室</span>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 fy-main-content-meun">
                     <div class="fy-main-content-meun-item d-flex align-items-center justify-content-center">
-                        <span class="align-self-center">联系我们</span>
+                        <span class="align-self-center" lang-flag="contact">联系我们</span>
                     </div>
                 </div>
 
@@ -137,19 +136,48 @@
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/ying.js"></script>
 
 <script>
-    $(document).ready(function () {
-        let currentLang = $("html").attr("lang");
-        if (currentLang) {
-            if (currentLang == "en") {
-                $("#lang-en").toggleClass("lang-red");
-                $("#lang-zh").toggleClass("lang-black");
-            } else {
-                $("#lang-en").toggleClass("lang-black");
-                $("#lang-zh").toggleClass("lang-red");
-            }
+    function setLang(lang) {
+        $("[lang-flag]").each(function (index, element) {
+            element.innerText = (pageLang[lang][element.getAttribute("lang-flag")]);
+        });
+    }
+
+    function toggleLang(currentLang) {
+        $("#lang-en").removeClass("lang-red lang-black");
+        $("#lang-zh").removeClass("lang-red lang-black");
+        if (currentLang && currentLang == "en") {
+
+            $("#lang-en").addClass("lang-red");
+            $("#lang-zh").addClass("lang-black");
+            setLang("en");
+        } else {
+            $("#lang-en").addClass("lang-black");
+            $("#lang-zh").addClass("lang-red");
+            setLang("zh");
         }
+    }
+
+    $(document).ready(function () {
+
+        let item = localStorage.getItem("currentLang");
+        if (item && item == "en") {
+            toggleLang(item);
+        } else {
+            toggleLang("zh");
+        }
+    });
+
+
+    $("#lang-en").click(function () {
+        localStorage.setItem("currentLang", "en");
+        toggleLang("en");
+    });
+    $("#lang-zh").click(function () {
+        localStorage.setItem("currentLang", "zh");
+        toggleLang("zh");
     });
 
 </script>
